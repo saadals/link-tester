@@ -11,8 +11,7 @@ public class App
 		Scanner reader = new Scanner(System.in);
 		String website = reader.nextLine();
 		reader.close();
-		LinkTester ex = new LinkTester("www."+website);
-		ex.checkWebPage("www."+website);
-		ex.closeDriver();
+		LinkTester linkTester = new LinkTester("www."+website);
+		linkTester.checkWebPage("www."+website);
     }
 }

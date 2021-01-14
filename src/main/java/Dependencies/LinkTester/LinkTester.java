@@ -72,7 +72,7 @@ public class LinkTester{
 				recordBrokenLink(Website, hrefLinks.get(i),hrefElements.get(i));
 			}
 		}
-		return;
+		closeDriver();
 	}
 
 	public void recordBrokenLink(String root,String link, WebElement element){
@@ -88,7 +88,6 @@ public class LinkTester{
 	    }catch(IOException e){
 	    	e.printStackTrace();
 	    }
-		return;
 	}
 	
 	public List<String> getHrefLinks(List<WebElement> hrefElements){
@@ -109,12 +108,10 @@ public class LinkTester{
 	public void getPage(String link){
 		link = link.replaceAll("\\s+","");
 		driver.get(link);		
-		return;
 	}
 	
 	public void closeDriver(){
 		driver.close();
-		return;
 	}
 	
 	public boolean linkCheck(String link) {
@@ -126,15 +123,5 @@ public class LinkTester{
 			return false;
 		}
 		return true;
-	}
-	
-	public static void main(String args[]) {
-		System.out.println("Enter the website you want tested (format: example.com):");
-		Scanner reader = new Scanner(System.in);
-		String website = reader.nextLine();
-		reader.close();
-		LinkTester ex = new LinkTester("www."+website);
-		ex.checkWebPage("www."+website);
-		ex.closeDriver();
 	}
 }
